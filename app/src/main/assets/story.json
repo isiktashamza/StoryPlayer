@@ -4,16 +4,16 @@
       "stories" : [
         {
           "story_id" : "1",
-          "username": "muhittin",
-          "story_time": "5dk önce",
+          "username": "Aragorn the Ranger",
+          "story_time": "1 dakika  önce",
           "url": "https://www.webtekno.com/images/editor/default/0002/52/4893e2d0f9257e09b8c737ed60804e1fe8d8c992.jpeg",
           "content_type" : 0,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
         },
         {
           "story_id" : "2",
-          "username": "muhittin",
-          "story_time": "9dk önce",
+          "username": "Aragorn the Ranger",
+          "story_time": "9 dakika önce",
           "url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/2/27024/857251-boromir6.jpg",
           "content_type" : 0,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
@@ -21,8 +21,8 @@
         },
         {
           "story_id" : "3",
-          "username": "muhittin",
-          "story_time": "18dk önce",
+          "username": "Aragorn the Ranger",
+          "story_time": "18 dakika önce",
           "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
           "content_type" : 1,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
@@ -30,8 +30,8 @@
         },
         {
           "story_id" : "4",
-          "username": "muhittin",
-          "story_time": "2saat önce",
+          "username": "Aragorn the Ranger",
+          "story_time": "2 saat önce",
           "url": "https://upload.wikimedia.org/wikipedia/tr/4/43/Faramir.jpg",
           "content_type" : 0,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
@@ -43,16 +43,16 @@
       "stories" : [
         {
           "story_id" : "5",
-          "username": "kazım",
-          "story_time": "5dk önce",
+          "username": "Saruman the White",
+          "story_time": "3 dakika önce",
           "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
           "content_type" : 1,
           "user_pp" : "https://static.wikia.nocookie.net/antagonisten/images/6/67/Saruman-lotr-portrait.png/revision/latest?cb=20200104031821&path-prefix=de"
         },
         {
           "story_id" : "6",
-          "username": "kazım",
-          "story_time": "9dk önce",
+          "username": "Saruman the White",
+          "story_time": "9 dakika önce",
           "url": "https://www.webtekno.com/images/editor/default/0002/52/4893e2d0f9257e09b8c737ed60804e1fe8d8c992.jpeg",
           "content_type" : 0,
           "user_pp" : "https://static.wikia.nocookie.net/antagonisten/images/6/67/Saruman-lotr-portrait.png/revision/latest?cb=20200104031821&path-prefix=de"
@@ -64,11 +64,42 @@
       "stories" : [
         {
           "story_id" : "7",
-          "username": "nuriye",
-          "story_time": "5dk önce",
+          "username": "Galadriel",
+          "story_time": "19 dakika önce",
           "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
           "content_type" : 1,
           "user_pp" : "https://thefandom.net/wp-content/uploads/2019/11/galadriel-lotr-s2-featured.jpg"
+
+        }
+      ]
+    },
+    {
+      "stories" : [
+        {
+          "story_id" : "8",
+          "username": "Arwen Undomiel",
+          "story_time": "5 dakika önce",
+          "url": "https://static.wikia.nocookie.net/ortadunya/images/6/63/Rivendell.jpg/revision/latest?cb=20190920071906",
+          "content_type" : 0,
+          "user_pp" : "https://i.pinimg.com/originals/6d/66/78/6d667861a40f5a1addb15b3503e01952.jpg"
+
+        },
+        {
+          "story_id" : "9",
+          "username": "Arwen Undomiel",
+          "story_time": "12 saat  önce",
+          "url": "https://images6.fanpop.com/image/photos/34500000/Arwen-Return-of-the-King-arwen-undomiel-34589894-337-287.jpg",
+          "content_type" : 0,
+          "user_pp" : "https://i.pinimg.com/originals/6d/66/78/6d667861a40f5a1addb15b3503e01952.jpg"
+
+        },
+        {
+          "story_id" : "10",
+          "username": "Arwen Undomiel",
+          "story_time": "18 saat  önce",
+          "url": "https://c4.wallpaperflare.com/wallpaper/161/258/438/water-elf-horse-the-lord-of-the-rings-arwen-hd-wallpaper-preview.jpg",
+          "content_type" : 0,
+          "user_pp" : "https://i.pinimg.com/originals/6d/66/78/6d667861a40f5a1addb15b3503e01952.jpg"
 
         }
       ]

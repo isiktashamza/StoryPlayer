@@ -1,14 +1,10 @@
-package com.isiktas.story.page.fragment
+package com.isiktas.story.page.fragment.story_detail
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.drawable.LayerDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.*
@@ -18,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.isiktas.story.R
 import com.isiktas.story.listener.StoryGroupChangeListener
 import com.isiktas.story.model.Story
+import com.isiktas.story.util.Constants
 import de.hdodenhof.circleimageview.CircleImageView
 import java.lang.Exception
 
@@ -41,7 +38,6 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     private var currentStory = 0
 
     private var isStoryHeld = false
-    private var stopPosition = 0
     private var oneSecRunnable = Runnable {
         isStoryHeld = true
         holdStory()
@@ -94,7 +90,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         touchHandler.setOnTouchListener { _, motionEvent ->
             when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    handler.postDelayed(oneSecRunnable, 200)
+                    handler.postDelayed(oneSecRunnable, LONG_PRESS_DETECTION_TIME_MS)
                 }
                 MotionEvent.ACTION_UP -> {
                     if (isStoryHeld){
@@ -120,7 +116,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         username.text = stories.elementAt(currentStory).username
         time.text = stories.elementAt(currentStory).story_time
 
-        if (stories.elementAt(currentStory).contentType == 0) {
+        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_IMAGE) {
             handleImage()
         } else {
             handleVideo()
@@ -129,13 +125,13 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     private fun initProgressBars() {
         val width =
-            displayMetrics.widthPixels - displayMetrics.density * 40 - 10 * (stories.size - 1)
+            displayMetrics.widthPixels - displayMetrics.density * 2 * PROGRESS_BAR_CONTAINER_ONE_END_MARGIN - 2*PROGRESS_BAR_ONE_END_MARGIN * (stories.size - 1)
         val layoutParams = FrameLayout.LayoutParams(
             width.toInt() / stories.size,
             WindowManager.LayoutParams.MATCH_PARENT
         )
-        layoutParams.marginEnd = 5
-        layoutParams.marginStart = 5
+        layoutParams.marginEnd = PROGRESS_BAR_ONE_END_MARGIN
+        layoutParams.marginStart = PROGRESS_BAR_ONE_END_MARGIN
         for (x in 1..stories.size) {
             val progressBar = ProgressBar(requireContext(), null, R.attr.progressBarStyle)
             progressBar.progressDrawable =
@@ -198,14 +194,14 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     private fun holdStory() {
         thread = null
-        if (stories.elementAt(currentStory).contentType == 1){
+        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
             video.pause()
         }
     }
 
     private fun resumeStory() {
         startThread()
-        if (stories.elementAt(currentStory).contentType == 1){
+        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
             video.start()
         }
     }
@@ -225,13 +221,14 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         image.visibility = View.GONE
         isStoryHeld = false
         progressStatus = 0
+        handler.removeCallbacks(oneSecRunnable)
     }
 
     private fun startThread() {
         thread = Thread(Runnable {
             while (progressStatus <= 100) {
                 if (thread != null && thread!!.isInterrupted.not()) {
-                    if (stories.elementAt(currentStory).contentType == 0) {
+                    if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_IMAGE) {
                         progressStatus += 1
 
                     } else {
@@ -242,7 +239,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
                             progressStatus
                     }
                     try {
-                        Thread.sleep(50)
+                        Thread.sleep(THREAD_SLEEP_TIME_MS)
                     } catch (e: Exception) {
                         e.printStackTrace() //TODO: handle exception
                     }
@@ -255,5 +252,13 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
             }
         })
         thread!!.start()
+    }
+
+
+    companion object {
+        const val PROGRESS_BAR_CONTAINER_ONE_END_MARGIN = 20
+        const val PROGRESS_BAR_ONE_END_MARGIN = 5
+        const val THREAD_SLEEP_TIME_MS = 50.toLong()
+        const val LONG_PRESS_DETECTION_TIME_MS = 200.toLong()
     }
 }

@@ -5,8 +5,8 @@
     android:id="@+id/story_detail_touch_handler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dddddd"
-    tools:context=".page.fragment.StoryDetailFragment">
+    android:background="@color/light_grey"
+    tools:context=".page.fragment.story_detail.StoryDetailFragment">
 
    <ImageView
        android:id="@+id/story_detail_image"
@@ -27,7 +27,9 @@
         android:id="@+id/progress_bar_container"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent" />
 
