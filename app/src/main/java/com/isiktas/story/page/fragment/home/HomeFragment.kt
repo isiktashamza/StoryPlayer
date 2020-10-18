@@ -20,6 +20,8 @@ class HomeFragment : Fragment(), HomeContract.View {
 
     private lateinit var fragmentChangeListener: FragmentChangeListener
 
+    private lateinit var response: StoriesResponse
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +47,7 @@ class HomeFragment : Fragment(), HomeContract.View {
     }
 
     override fun storiesRead(storiesResponse: StoriesResponse) {
+        response = storiesResponse
         if (activity != null && requireActivity().isFinishing.not()){
             (storyRecyclerView.adapter as StoryRecyclerAdapter).stories.addAll(storiesResponse.data)
             (storyRecyclerView.adapter as StoryRecyclerAdapter).notifyDataSetChanged()
@@ -58,6 +61,7 @@ class HomeFragment : Fragment(), HomeContract.View {
     override fun storyClicked(index: Int) {
         val bundle = Bundle()
         bundle.putInt("current_story", index)
+        bundle.putSerializable("stories", response)
         fragmentChangeListener.addFragment(StoryContainerFragment(), bundle)
     }
 

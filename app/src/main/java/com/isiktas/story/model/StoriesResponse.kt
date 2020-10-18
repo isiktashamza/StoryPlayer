@@ -1,12 +1,13 @@
 package com.isiktas.story.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class StoriesResponse(
 
     @SerializedName("data")
     val data: List<StoryList>
-)
+) : Serializable
 
 
 data class StoryList(

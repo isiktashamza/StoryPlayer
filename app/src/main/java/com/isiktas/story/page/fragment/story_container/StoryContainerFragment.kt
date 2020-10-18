@@ -15,11 +15,9 @@ import com.isiktas.story.listener.StoryGroupChangeListener
 import com.isiktas.story.model.StoriesResponse
 import com.isiktas.story.model.StoryList
 import com.isiktas.story.page.fragment.story_detail.StoryDetailFragment
-import kotlin.math.abs
 
-class StoryContainerFragment : Fragment(), StoryContainerContract.View {
+class StoryContainerFragment : Fragment(), StoryGroupChangeListener {
 
-    private var presenter: StoryContainerContract.Presenter? = null
 
     private lateinit var viewPager: ViewPager
 
@@ -39,9 +37,7 @@ class StoryContainerFragment : Fragment(), StoryContainerContract.View {
         initViews(view)
         setFragmentChangeListener(activity as FragmentChangeListener)
 
-        setPresenter(StoryContainerPresenter(this))
-        presenter?.readStories(requireContext().assets.open("story.json"))
-
+        populateStories(readStoriesFromArguments())
 
     }
 
@@ -50,6 +46,9 @@ class StoryContainerFragment : Fragment(), StoryContainerContract.View {
 
     }
 
+    private fun readStoriesFromArguments() : StoriesResponse {
+        return requireArguments().getSerializable("stories") as StoriesResponse
+    }
     private fun readCurrentStoryFromArguments() : Int{
          return requireArguments().getInt("current_story", 0)
     }
@@ -72,7 +71,7 @@ class StoryContainerFragment : Fragment(), StoryContainerContract.View {
 
     }
 
-    override fun storiesRead(storiesResponse: StoriesResponse) {
+    private fun populateStories(storiesResponse: StoriesResponse) {
         viewPager.offscreenPageLimit = storiesResponse.data.size
         viewPager.adapter =
             StoryContainerFragmentAdapter(
@@ -86,9 +85,6 @@ class StoryContainerFragment : Fragment(), StoryContainerContract.View {
         viewPager.currentItem = readCurrentStoryFromArguments()
     }
 
-    override fun setPresenter(presenter: StoryContainerContract.Presenter) {
-        this.presenter = presenter
-    }
 
     override fun onNextStoryGroup() {
         if (viewPager.currentItem != viewPager.childCount - 1){
