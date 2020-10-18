@@ -27,6 +27,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     private lateinit var userProfilePicture: CircleImageView
     private lateinit var username: TextView
     private lateinit var time: TextView
+    private lateinit var storyLayout: ConstraintLayout
 
     private val displayMetrics = DisplayMetrics()
 
@@ -81,6 +82,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         userProfilePicture = root.findViewById(R.id.story_detail_profile_picture)
         username = root.findViewById(R.id.story_detail_username)
         time = root.findViewById(R.id.story_detail_time)
+        storyLayout = root.findViewById(R.id.story_layout)
     }
 
     private fun getDisplayMetrics() {
@@ -199,6 +201,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
             video.pause()
         }
+        storyLayout.visibility = View.INVISIBLE
     }
 
     private fun resumeStory() {
@@ -206,6 +209,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
             video.start()
         }
+        storyLayout.visibility= View.VISIBLE
     }
 
     private fun changeStory(x: Float) {

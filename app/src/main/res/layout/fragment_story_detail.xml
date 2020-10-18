@@ -23,50 +23,59 @@
        app:layout_constraintBottom_toBottomOf="parent"
        android:layout_height="0dp" />
 
-    <LinearLayout
-        android:id="@+id/progress_bar_container"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/story_layout"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/story_detail_profile_picture"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_margin="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progress_bar_container" />
+        <LinearLayout
+            android:id="@+id/progress_bar_container"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/story_detail_profile_picture"
-        app:layout_constraintTop_toBottomOf="@id/progress_bar_container">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/story_detail_profile_picture"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_bar_container" />
 
-        <TextView
-            android:id="@+id/story_detail_username"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="#1e2843"
-            android:textSize="14sp"
-            tools:text="Muhittin Topalak" />
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/story_detail_profile_picture"
+            app:layout_constraintTop_toBottomOf="@id/progress_bar_container">
 
-        <TextView
-            android:id="@+id/story_detail_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="#77838f"
-            android:textSize="12sp"
-            tools:text="7 dakika önce" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/story_detail_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="#1e2843"
+                android:textSize="14sp"
+                tools:text="Muhittin Topalak" />
+
+            <TextView
+                android:id="@+id/story_detail_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="#77838f"
+                android:textSize="12sp"
+                tools:text="7 dakika önce" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,36 +4,36 @@
       "stories" : [
         {
           "story_id" : "1",
-          "username": "Aragorn the Ranger",
+          "username": "Aragorn",
           "story_time": "1 dakika  önce",
-          "url": "https://www.webtekno.com/images/editor/default/0002/52/4893e2d0f9257e09b8c737ed60804e1fe8d8c992.jpeg",
+          "url": "https://i0.wp.com/voyagecomics.com/wp-content/uploads/2019/11/aragorn.jpg?fit=1024%2C580&ssl=1",
           "content_type" : 0,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
         },
         {
           "story_id" : "2",
-          "username": "Aragorn the Ranger",
+          "username": "Aragorn",
           "story_time": "9 dakika önce",
-          "url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/2/27024/857251-boromir6.jpg",
+          "url": "https://64.media.tumblr.com/tumblr_majr1yGL1D1rg58qfo1_500.jpg",
           "content_type" : 0,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
 
         },
         {
           "story_id" : "3",
-          "username": "Aragorn the Ranger",
-          "story_time": "18 dakika önce",
-          "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          "content_type" : 1,
+          "username": "Aragorn",
+          "story_time": "2 saat önce",
+          "url": "https://i.pinimg.com/originals/c0/fa/a7/c0faa7ef0fe8c8473d68a4d662e0ff85.jpg",
+          "content_type" : 0,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
 
         },
         {
           "story_id" : "4",
-          "username": "Aragorn the Ranger",
-          "story_time": "2 saat önce",
-          "url": "https://upload.wikimedia.org/wikipedia/tr/4/43/Faramir.jpg",
-          "content_type" : 0,
+          "username": "Aragorn",
+          "story_time": "18 dakika önce",
+          "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          "content_type" : 1,
           "user_pp" : "https://cms.qz.com/wp-content/uploads/2018/05/aragorn-lord-of-the-rings-e1526658193149.jpg?quality=75&strip=all&w=1400"
 
         }
@@ -42,8 +42,29 @@
     {
       "stories" : [
         {
+          "story_id" : "25",
+          "username": "Sauron",
+          "story_time": "3 dakika önce",
+          "url": "https://cdn.shopify.com/s/files/1/0216/7762/products/SAURONPRIME1MAIN_2000x.jpg?v=1581073060",
+          "content_type" : 0,
+          "user_pp" : "https://o.aolcdn.com/images/dims?quality=95&image_uri=https%3A%2F%2Fs.yimg.com%2Fuu%2Fapi%2Fres%2F1.2%2F8klMYnpk.CKI4sOyT7CpIw--%7EB%2FaD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u%2Fhttps%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Fe31fa752a7e229c5636e7c2e100e3058%2F206350095%2Fsauron-eye-new-line-cinema.jpg&client=amp-blogside-v2&signature=3b66809bfb7b5d5e6c272e34d67bfa4b17310d03"
+        },
+        {
+          "story_id" : "63",
+          "username": "Sauron",
+          "story_time": "39 dakika önce",
+          "url": "https://i.pinimg.com/originals/e9/2c/53/e92c532a131de201d4403074eb38309d.jpg",
+          "content_type" : 0,
+          "user_pp" : "https://o.aolcdn.com/images/dims?quality=95&image_uri=https%3A%2F%2Fs.yimg.com%2Fuu%2Fapi%2Fres%2F1.2%2F8klMYnpk.CKI4sOyT7CpIw--%7EB%2FaD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u%2Fhttps%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Fe31fa752a7e229c5636e7c2e100e3058%2F206350095%2Fsauron-eye-new-line-cinema.jpg&client=amp-blogside-v2&signature=3b66809bfb7b5d5e6c272e34d67bfa4b17310d03"
+
+        }
+      ]
+    },
+    {
+      "stories" : [
+        {
           "story_id" : "5",
-          "username": "Saruman the White",
+          "username": "Saruman",
           "story_time": "3 dakika önce",
           "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
           "content_type" : 1,
@@ -51,9 +72,9 @@
         },
         {
           "story_id" : "6",
-          "username": "Saruman the White",
+          "username": "Saruman",
           "story_time": "9 dakika önce",
-          "url": "https://www.webtekno.com/images/editor/default/0002/52/4893e2d0f9257e09b8c737ed60804e1fe8d8c992.jpeg",
+          "url": "https://i.ytimg.com/vi/Iq5q0mseF-s/maxresdefault.jpg",
           "content_type" : 0,
           "user_pp" : "https://static.wikia.nocookie.net/antagonisten/images/6/67/Saruman-lotr-portrait.png/revision/latest?cb=20200104031821&path-prefix=de"
 
@@ -68,6 +89,15 @@
           "story_time": "19 dakika önce",
           "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
           "content_type" : 1,
+          "user_pp" : "https://thefandom.net/wp-content/uploads/2019/11/galadriel-lotr-s2-featured.jpg"
+
+        },
+        {
+          "story_id" : "17",
+          "username": "Galadriel",
+          "story_time": "13 saat önce",
+          "url": "https://fantazya.org/wp-content/uploads/2018/01/galadriel_by_lotsoflowe-d7ac7tu.jpg",
+          "content_type" : 0,
           "user_pp" : "https://thefandom.net/wp-content/uploads/2019/11/galadriel-lotr-s2-featured.jpg"
 
         }
@@ -100,6 +130,54 @@
           "url": "https://c4.wallpaperflare.com/wallpaper/161/258/438/water-elf-horse-the-lord-of-the-rings-arwen-hd-wallpaper-preview.jpg",
           "content_type" : 0,
           "user_pp" : "https://i.pinimg.com/originals/6d/66/78/6d667861a40f5a1addb15b3503e01952.jpg"
+
+        }
+      ]
+    },
+    {
+      "stories" : [
+        {
+          "story_id" : "11",
+          "username": "Gandalf",
+          "story_time": "19 dakika önce",
+          "url": "https://i.pinimg.com/originals/ca/5d/69/ca5d694179fda40ccb19e22c03558791.jpg",
+          "content_type" : 0,
+          "user_pp" : "https://www.webtekno.com/images/editor/default/0002/52/4893e2d0f9257e09b8c737ed60804e1fe8d8c992.jpeg"
+
+        },
+      {
+        "story_id" : "11",
+        "username": "Gandalf",
+        "story_time": "19 dakika önce",
+        "url": "https://i.pinimg.com/originals/61/92/27/6192272cfaac10cd5f51f12c5d2048a9.jpg",
+        "content_type" : 0,
+        "user_pp" : "https://www.webtekno.com/images/editor/default/0002/52/4893e2d0f9257e09b8c737ed60804e1fe8d8c992.jpeg"
+
+      }
+      ]
+    },
+    {
+      "stories" : [
+        {
+          "story_id" : "12",
+          "username": "Boromir",
+          "story_time": "19 saat önce",
+          "url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lord-of-the-rings-sean-bean-boromir-1584636601.jpg",
+          "content_type" : 0,
+          "user_pp" : "https://giantbomb1.cbsistatic.com/uploads/scale_medium/2/27024/857251-boromir6.jpg"
+
+        }
+      ]
+    },
+    {
+      "stories" : [
+        {
+          "story_id" : "13",
+          "username": "Legolas",
+          "story_time": "23 saat önce",
+          "url": "https://qph.fs.quoracdn.net/main-qimg-3e50140d30f3f446c5c791d3584b93fc.webp",
+          "content_type" : 0,
+          "user_pp" : "https://img1.looper.com/img/gallery/legolas-entire-backstory-explained/intro-1596043157.jpg"
 
         }
       ]
