@@ -63,6 +63,8 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     override fun onResume() {
         super.onResume()
+        thread?.interrupt()
+        thread = null
         populateViews()
     }
 
@@ -97,10 +99,10 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
                         resumeStory()
                     }
                     else {
-                        handler.removeCallbacks(oneSecRunnable)
                         changeStory(motionEvent.x)
 
                     }
+                    handler.removeCallbacks(oneSecRunnable)
                     isStoryHeld = false
 
                 }
@@ -110,7 +112,6 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     }
 
     private fun populateViews() {
-        thread = null
         Glide.with(requireContext()).load(stories.elementAt(currentStory).userPP).centerCrop()
             .into(userProfilePicture)
         username.text = stories.elementAt(currentStory).username
@@ -193,6 +194,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     }
 
     private fun holdStory() {
+        thread?.interrupt()
         thread = null
         if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
             video.pause()
@@ -216,6 +218,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     }
 
     private fun resetFields() {
+        thread?.interrupt()
         thread = null
         video.visibility = View.GONE
         image.visibility = View.GONE
