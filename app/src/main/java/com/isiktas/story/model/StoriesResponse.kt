@@ -13,7 +13,7 @@ data class StoriesResponse(
 data class StoryList(
     @SerializedName("stories")
     val stories: List<Story>
-)
+): Serializable
 
 data class Story(
 
@@ -36,4 +36,4 @@ data class Story(
     val userPP: String
 
 
-)
+) : Serializable

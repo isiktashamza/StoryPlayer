@@ -1,6 +1,7 @@
 package com.isiktas.story.page.fragment.story_detail
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -12,6 +13,10 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.isiktas.story.R
 import com.isiktas.story.listener.StoryGroupChangeListener
 import com.isiktas.story.model.Story
@@ -159,9 +164,30 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     private fun handleImage() {
         video.visibility = View.GONE
         image.visibility = View.VISIBLE
-        Glide.with(requireContext()).load(stories.elementAt(currentStory).url).into(image)
+        Glide.with(requireContext()).load(stories.elementAt(currentStory).url)
+            .listener(object: RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
 
-        startThread()
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    startThread()
+                    return false
+                }
+            }).into(image)
+
+//        startThread()
     }
 
     private fun handleVideo() {
