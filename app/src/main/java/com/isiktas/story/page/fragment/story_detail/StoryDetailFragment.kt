@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.*
@@ -67,6 +68,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         thread?.interrupt()
         thread = null
         populateViews()
+        storyLayout.visibility = View.VISIBLE
     }
 
     override fun onPause() {
@@ -248,7 +250,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
                     try {
                         Thread.sleep(THREAD_SLEEP_TIME_MS)
                     } catch (e: Exception) {
-                        e.printStackTrace() //TODO: handle exception
+                        Log.e("story_detail", "thread sleep error")
                     }
                 } else {
                     break
@@ -266,6 +268,6 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         const val PROGRESS_BAR_CONTAINER_ONE_END_MARGIN = 20
         const val PROGRESS_BAR_ONE_END_MARGIN = 5
         const val THREAD_SLEEP_TIME_MS = 50.toLong()
-        const val LONG_PRESS_DETECTION_TIME_MS = 200.toLong()
+        const val LONG_PRESS_DETECTION_TIME_MS = 500.toLong()
     }
 }
