@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.*
@@ -37,7 +38,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     private val displayMetrics = DisplayMetrics()
 
-    private val handler = Handler()
+    private val handler = Handler(Looper.getMainLooper())
     private var thread: Thread? = null
     private var progressStatus = 0
 
@@ -186,8 +187,6 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
                     return false
                 }
             }).into(image)
-
-//        startThread()
     }
 
     private fun handleVideo() {
