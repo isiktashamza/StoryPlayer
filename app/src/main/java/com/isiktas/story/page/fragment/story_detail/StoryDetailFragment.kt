@@ -25,7 +25,10 @@ import com.isiktas.story.util.Constants
 import de.hdodenhof.circleimageview.CircleImageView
 import java.lang.Exception
 
-class StoryDetailFragment(private val stories: List<Story>, private val storyGroupChangeListener: StoryGroupChangeListener) : Fragment() {
+class StoryDetailFragment(
+    private val stories: List<Story>,
+    private val storyGroupChangeListener: StoryGroupChangeListener
+) : Fragment() {
 
     private lateinit var touchHandler: ConstraintLayout
     private lateinit var image: ImageView
@@ -49,6 +52,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     private var oneSecRunnable = Runnable {
         isStoryHeld = true
         holdStory()
+        touchHandler.parent.requestDisallowInterceptTouchEvent(true)
     }
 
     override fun onCreateView(
@@ -99,22 +103,29 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setListeners() {
-        touchHandler.setOnTouchListener { _, motionEvent ->
+        touchHandler.setOnTouchListener { view, motionEvent ->
+            Log.i("action", motionEvent.action.toString())
             when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
                     handler.postDelayed(oneSecRunnable, LONG_PRESS_DETECTION_TIME_MS)
                 }
                 MotionEvent.ACTION_UP -> {
-                    if (isStoryHeld){
+                    if (isStoryHeld) {
                         resumeStory()
-                    }
-                    else {
+                    } else {
                         changeStory(motionEvent.x)
 
                     }
                     handler.removeCallbacks(oneSecRunnable)
+                    view.parent.requestDisallowInterceptTouchEvent(false)
                     isStoryHeld = false
 
+                }
+                MotionEvent.ACTION_CANCEL -> {
+                    resumeStory()
+                    view.parent.requestDisallowInterceptTouchEvent(false)
+                    handler.removeCallbacks(oneSecRunnable)
+                    isStoryHeld = false
                 }
             }
             true
@@ -136,7 +147,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     private fun initProgressBars() {
         val width =
-            displayMetrics.widthPixels - displayMetrics.density * 2 * PROGRESS_BAR_CONTAINER_ONE_END_MARGIN - 2*PROGRESS_BAR_ONE_END_MARGIN * (stories.size - 1)
+            displayMetrics.widthPixels - displayMetrics.density * 2 * PROGRESS_BAR_CONTAINER_ONE_END_MARGIN - 2 * PROGRESS_BAR_ONE_END_MARGIN * (stories.size - 1)
         val layoutParams = FrameLayout.LayoutParams(
             width.toInt() / stories.size,
             WindowManager.LayoutParams.MATCH_PARENT
@@ -166,7 +177,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         video.visibility = View.GONE
         image.visibility = View.VISIBLE
         Glide.with(requireContext()).load(stories.elementAt(currentStory).url)
-            .listener(object: RequestListener<Drawable> {
+            .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,
@@ -193,6 +204,11 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         image.visibility = View.GONE
         video.visibility = View.VISIBLE
         video.setVideoURI(Uri.parse(stories.elementAt(currentStory).url))
+        video.setOnCompletionListener {
+            handler.post {
+                nextStory()
+            }
+        }
         video.requestFocus()
         video.start()
 
@@ -225,7 +241,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
     private fun holdStory() {
         thread?.interrupt()
         thread = null
-        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
+        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO) {
             video.pause()
         }
         storyLayout.visibility = View.INVISIBLE
@@ -233,10 +249,10 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
 
     private fun resumeStory() {
         startThread()
-        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO){
+        if (stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_VIDEO) {
             video.start()
         }
-        storyLayout.visibility= View.VISIBLE
+        storyLayout.visibility = View.VISIBLE
     }
 
     private fun changeStory(x: Float) {
@@ -282,7 +298,7 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
                 }
             }
             handler.post {
-                if (progressStatus >= 100) nextStory()
+                if (progressStatus >= 100 && stories.elementAt(currentStory).contentType == Constants.CONTENT_TYPE_IMAGE) nextStory()
             }
         })
         thread!!.start()
@@ -294,5 +310,8 @@ class StoryDetailFragment(private val stories: List<Story>, private val storyGro
         const val PROGRESS_BAR_ONE_END_MARGIN = 5
         const val THREAD_SLEEP_TIME_MS = 50.toLong()
         const val LONG_PRESS_DETECTION_TIME_MS = 500.toLong()
+        const val MOVE_DETECTION_TIME_MS = 100.toLong()
     }
+
+
 }
